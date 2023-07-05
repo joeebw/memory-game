@@ -19,11 +19,7 @@ const MODAL_TEXT = {
 
 
 function ScreenTwo({setFinalMessage, setRoutes}) {
-  const [arrayCard, setArrayCard] = useState([]);
-  const [cardStack, setCardStack] = useState([]);
-  const [showModal, setShowModal] = useState(DEFAULT_MODAL_VALUES);
-  const [disable, setDisable] =  useState(false);
-  const [isMuted, setIsmuted] = useState(false);
+  
 
 
   const removeCardStack = (card) => {
