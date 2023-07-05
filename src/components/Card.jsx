@@ -19,7 +19,7 @@ function Card({card}) {
         setShowCard(!showCard);
         setAnimateFlip(false);
         setDisable(false);
-      }, 500);
+      }, 300);
     }
   }
 

@@ -13,7 +13,8 @@ export default {
     animation: {
       'slide-in-top': 'slide-in-top 0.5s ease-in-out forwards',
       'slide-in-bottom': 'slide-in-bottom 0.5s ease-in-out forwards',
-      'flip': 'flip 0.5s linear forwards'
+      'flip': 'flip 0.5s linear forwards',
+      'bounce': 'bounce 0.5s ease-in-out forwards'
     },
     keyframes: {
       'slide-in-top': {
@@ -27,7 +28,11 @@ export default {
       'flip': {
         '0%': { transform: 'rotateX(0deg) rotateY(0deg)'},
         '100%': { transform: 'rotateY(180deg)'}
-      }
+      },
+      'bounce': {
+        '0% , 100%': {transform: 'translateY(0)'},
+        '50%': {transform:' translateY(-20px)'}
+      } 
     },
   },
   plugins: [],
