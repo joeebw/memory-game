@@ -19,7 +19,7 @@ function Card({card}) {
         setShowCard(!showCard);
         setAnimateFlip(false);
         setDisable(false);
-      }, 600);
+      }, 500);
     }
   }
 
@@ -29,7 +29,7 @@ function Card({card}) {
         setShowCard(false);
         setAnimateFlip(false);
         setDisable(false);
-      }, 600);
+      }, 500);
   }
 
   // when the pair card are incorrect close
