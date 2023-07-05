@@ -95,6 +95,15 @@ export const GameProvider = ({children}) => {
     setIsmuted(!isMuted);
   }
 
+  useEffect(() => {
+    if (showModal.show) {
+      setTimeout(() => {
+        setShowModal({...showModal ,show: false});
+      }, 1000);
+    }
+  }, [showModal])
+
+
   const removeCardStack = (card) => {
     if (cardStack.length === 0) return;
     setCardStack(prev => prev.filter(cardItem => cardItem.id !== card.id));
