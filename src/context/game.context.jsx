@@ -88,9 +88,10 @@ export const GameProvider = ({children}) => {
   }, [routes])
 
   const toggleMuted = () => {
-    for(let audio in audios) {
-      audios[audio].muted = !isMuted;
-    }
+    // for(let audio in audios) {
+    //   audios[audio].muted = !isMuted;
+    // }
+    audios.background.muted = !isMuted;
     setIsmuted(!isMuted);
   }
 
