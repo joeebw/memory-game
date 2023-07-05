@@ -1,21 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { GameContext } from '../context/game.context';
 
-function Card(props) {
-  const [flip, setFlip] = useState(false);
+function Card({card}) {
+  const [showCard, setShowCard] = useState(false);
   const [animateFlip, setAnimateFlip] = useState(false);
+  const {addCardStack, removeCardStack, setDisable, disable} = useContext(GameContext);
 
-  const {card, addCardStack, removeCardStack, setDisable, disable} = props;
 
   const handlerOnClick = () => {
     handleFlipAnimation();
   }
 
   const handleFlipAnimation = () => {
-    if (!animateFlip && !card.isCorrect && !disable){
+    if (!card.isCorrect && !disable){
       setAnimateFlip(true);
       setDisable(true);
       setTimeout(() => {
-        setFlip(!flip);
+        setShowCard(!showCard);
         setAnimateFlip(false);
         setDisable(false);
       }, 600);
@@ -25,12 +26,13 @@ function Card(props) {
   const closeCardAnimation = () => {
       setAnimateFlip(true);
       setTimeout(() => {
-        setFlip(false);
+        setShowCard(false);
         setAnimateFlip(false);
         setDisable(false);
       }, 600);
   }
 
+  // when the pair card are incorrect close
   useEffect(() => {
     if (card.closeCard) {
       setDisable(true);
@@ -40,20 +42,21 @@ function Card(props) {
     }
   }, [card])
 
+  // when the card is open then add to the cardStack
   useEffect(() => {
-    if (flip) {
+    if (showCard) {
       return addCardStack(card)
     }
     removeCardStack(card);
-  }, [flip])
+  }, [showCard])
 
   return (
     <div 
       className={`flex items-center border-2 border-blue-700 ${animateFlip ?  'animate-flip' : ''}  
-      ${!flip ? 'bg-blue-400' : 'bg-slate-100'} h-[13rem] w-[7rem] md:h-[17rem] md:w-[11rem] lg:h-[18rem] lg:w-[12rem] rounded-md cursor-pointer`}
+      ${!showCard ? 'bg-blue-400' : 'bg-slate-100'} h-[13rem] w-[7rem] md:h-[17rem] md:w-[11rem] lg:h-[18rem] lg:w-[12rem] rounded-md cursor-pointer`}
       onClick={handlerOnClick}
     >
-      {flip ?
+      {showCard ?
         <div className='w-full'>
           <img src={card.name} alt="" />
         </div>

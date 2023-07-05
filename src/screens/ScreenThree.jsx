@@ -1,10 +1,14 @@
+import { useContext } from "react"
 import Button from "../components/Button"
 import { FINAL_MESSAGE, ROUTES } from "../utils/shared"
+import { HomeContext } from "../context/home.context"
 
 
-const ScreenThree = ({finalMessage, setRoutes}) => {
+const ScreenThree = () => {
+  const {finalMessage, setRoutes, playBackgroundMusic} = useContext(HomeContext);
 
   const handleChangeRoute = () => {
+    playBackgroundMusic();
     setRoutes(ROUTES.secondScreen);
   }
 

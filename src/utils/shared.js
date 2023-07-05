@@ -6,7 +6,7 @@ export const ROUTES = {
 
 export const FINAL_MESSAGE = {
   success: "You've done it! You've found all the card matches!",
-  fail: "Sorry but you lost the game, try again, you can do it, come on!"
+  fail: "Sorry but you lost the game. Try again, you can do it, come on!"
 }
 
 export const KEY_FINAL_MESSAGE  = {

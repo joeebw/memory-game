@@ -3,7 +3,7 @@ import Moon from '../assets/moon.svg'
 import Star from '../assets/star.svg'
 import Sun from '../assets/sun.svg'
 
-export const array = [
+export const arrayOfCards = [
   {
     name: Comet,
     id: 1,

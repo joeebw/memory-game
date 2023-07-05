@@ -1,11 +1,15 @@
 import Button from '../components/Button'
 import Logo from '../assets/logo.svg'
 import { ROUTES } from '../utils/shared'
+import { useContext } from 'react'
+import { HomeContext } from '../context/home.context'
 
-function ScreenOne({setRoutes}) {
+function ScreenOne() {
+  const {setRoutes, playBackgroundMusic} = useContext(HomeContext)
 
   const handleChangeRoute = () => {
     setRoutes(ROUTES.secondScreen)
+    playBackgroundMusic();
   }
 
   return (

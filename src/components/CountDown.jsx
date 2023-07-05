@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { audios } from '../utils/myAudio';
 import { ROUTES, KEY_FINAL_MESSAGE } from '../utils/shared';
+import { HomeContext } from '../context/home.context';
 
-const CountdownTimer = ({setFinalMessage, setRoutes}) => {
+const CountdownTimer = () => {
   const [countdown, setCountdown] = useState(30);
+  const {completedGame} = useContext(HomeContext);
 
   const handleChangeRoute = () => {
-    setFinalMessage(KEY_FINAL_MESSAGE.fail);
-    setRoutes(ROUTES.thirdScreen);
+    completedGame(KEY_FINAL_MESSAGE.fail);
   }
 
   useEffect(() => {
