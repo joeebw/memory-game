@@ -19,7 +19,7 @@ function Card({card}) {
         setShowCard(!showCard);
         setAnimateFlip(false);
         setDisable(false);
-      }, 300);
+      }, 500);
     }
   }
 
@@ -56,15 +56,13 @@ function Card({card}) {
       ${!showCard ? 'bg-blue-400' : 'bg-slate-100'} h-[13rem] w-[7rem] md:h-[17rem] md:w-[11rem] lg:h-[18rem] lg:w-[12rem] rounded-md cursor-pointer`}
       onClick={handlerOnClick}
     >
-      {showCard ?
-        <div className='w-full'>
+        <div className={`${showCard ? '' : 'hidden'} w-full`}>
           <img src={card.name} alt="" />
         </div>
-        :
-        <div className='flex justify-center items-center text-yellow-400 w-full'>
+        
+        <div className={`${showCard ? 'hidden' : ''} flex justify-center items-center text-yellow-400 w-full`}>
           <span className='text-8xl md:text-9xl'>?</span>
         </div>
-      }
     </div>
   )
 }
